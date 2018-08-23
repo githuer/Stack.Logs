@@ -10,24 +10,9 @@ namespace Stack.Log4net
     class Log4Context
     {
         /// <summary>
-        /// 系统日志记录器
+        /// 日志记录器
         /// </summary>
-        protected internal static ILog SysLog { get; private set; }
-
-        /// <summary>
-        /// 程序异常日志记录器
-        /// </summary>
-        protected internal static ILog ExceptionLog { get; private set; }
-
-        /// <summary>
-        /// 基础服务日志记录器
-        /// </summary>
-        protected internal static ILog WaLiuBasicServiceLog { get; private set; }
-
-        /// <summary>
-        /// API监控日志
-        /// </summary>
-        protected internal static ILog ApiMonitorLog { get; private set; }
+        protected internal static ILog Log { get; private set; }
 
         /// <summary>
         /// 
@@ -39,11 +24,8 @@ namespace Stack.Log4net
             ILoggerRepository repository = LogManager.CreateRepository("NETCoreRepository");
             log4net.Config.XmlConfigurator.ConfigureAndWatch(repository, file);
 
-            SysLog = LogManager.GetLogger(repository.Name, "SystemLogger");
-            ExceptionLog = LogManager.GetLogger(repository.Name, "ExceptionLogger");
-            WaLiuBasicServiceLog = LogManager.GetLogger(repository.Name, "WaLiuBasicServiceLogger");
-            ApiMonitorLog = LogManager.GetLogger(repository.Name, "ApiMonitorLogger");
-            SysLog.Info($"初始化{configPath}完成。");
+            Log = LogManager.GetLogger(repository.Name, "SystemLogger");
+            Log.Info($"初始化{configPath}完成。");
         }
     }
 }

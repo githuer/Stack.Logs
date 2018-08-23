@@ -6,7 +6,7 @@ using System.IO;
 namespace Stack.Log4net
 {
     /// <summary>
-    /// nlog扩展
+    ///log4net扩展
     /// </summary>
     public static class Log4Extensions
     {
